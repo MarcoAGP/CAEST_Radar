@@ -1,0 +1,2803 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>CAEST Radar | Marketing digital</title>
+    <script>
+      try {
+        document.documentElement.dataset.theme =
+          localStorage.getItem("caest-theme") === "dark" ? "dark" : "light";
+      } catch (e) {}
+    </script>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f3f6fb;
+        --card: #fff;
+        --sub: #f8fafc;
+        --ink: #14243e;
+        --muted: #52657e;
+        --border: #dce5ef;
+        --accent: #5145cd;
+        --shadow: 0 7px 25px #2039600b;
+        --blue: #5145cd;
+        --teal: #078d8d;
+        --pink: #c43d83;
+        --orange: #c46a09;
+        --green: #087c57;
+        --track: #e9eef5;
+        --nav: #111f3a;
+      }
+      :root[data-theme="dark"] {
+        color-scheme: dark;
+        --bg: #0b1220;
+        --card: #142035;
+        --sub: #19263d;
+        --ink: #e7eefb;
+        --muted: #a8b8cf;
+        --border: #2b3b54;
+        --accent: #a6a4ff;
+        --shadow: 0 7px 25px #0002;
+        --blue: #a6a4ff;
+        --teal: #4edac7;
+        --pink: #f88bbd;
+        --orange: #ffc075;
+        --green: #5fdbaf;
+        --track: #293b55;
+        --nav: #101a30;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 15px;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font:
+          14px/1.55 system-ui,
+          -apple-system,
+          Segoe UI,
+          sans-serif;
+      }
+      button,
+      input,
+      select {
+        font: inherit;
+      }
+      button,
+      select,
+      input[type="file"] {
+        cursor: pointer;
+      }
+      button,
+      input,
+      select {
+        color: var(--ink);
+      }
+      a {
+        color: var(--accent);
+      }
+      :focus-visible {
+        outline: 3px solid var(--accent);
+        outline-offset: 3px;
+      }
+      button {
+        border: 1px solid var(--border);
+        background: var(--card);
+        border-radius: 10px;
+        padding: 9px 13px;
+        font-weight: 650;
+      }
+      button:hover {
+        border-color: var(--accent);
+      }
+      .primary {
+        background: #5145cd;
+        color: white;
+        border-color: #5145cd;
+      }
+      .app {
+        display: grid;
+        grid-template-columns: 218px minmax(0, 1fr);
+        min-height: 100vh;
+      }
+      .side {
+        background: var(--nav);
+        color: #fff;
+        padding: 25px 16px;
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        overflow: auto;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 30px;
+      }
+      .logo {
+        display: grid;
+        place-items: center;
+        width: 42px;
+        height: 42px;
+        border-radius: 13px;
+        background: linear-gradient(140deg, #6366f1, #0e9f9b);
+        font-size: 22px;
+        font-weight: 900;
+      }
+      .brand strong {
+        font-size: 16px;
+      }
+      .brand small {
+        display: block;
+        color: #a7b9d6;
+        font-size: 11px;
+      }
+      .side a {
+        display: block;
+        text-decoration: none;
+        color: #d4e2f5;
+        border-radius: 9px;
+        padding: 11px 9px;
+        margin: 4px 0;
+        font-size: 13px;
+      }
+      .side a:hover {
+        background: #ffffff18;
+      }
+      .side .note {
+        color: #b5c7e1;
+        font-size: 11px;
+        margin-top: 28px;
+      }
+      .main {
+        padding: 28px clamp(15px, 3vw, 42px) 50px;
+        max-width: 1650px;
+        width: 100%;
+        margin: auto;
+      }
+      .top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 15px;
+        margin-bottom: 20px;
+      }
+      .eyebrow {
+        text-transform: uppercase;
+        font-size: 10px;
+        letter-spacing: 1.4px;
+        font-weight: 800;
+        color: var(--accent);
+      }
+      h1 {
+        font-size: clamp(26px, 3.1vw, 37px);
+        letter-spacing: -1.25px;
+        line-height: 1.1;
+        margin: 6px 0;
+      }
+      h2 {
+        font-size: 22px;
+        letter-spacing: -0.5px;
+        margin: 0 0 4px;
+      }
+      h3 {
+        font-size: 15px;
+        margin: 0 0 5px;
+      }
+      .subtitle,
+      .muted,
+      small {
+        color: var(--muted);
+      }
+      .actions {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .panel {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        box-shadow: var(--shadow);
+        padding: 18px;
+        min-width: 0;
+      }
+      .hero {
+        background: linear-gradient(120deg, #192f61, #5145cd);
+        color: #fff;
+        padding: 22px;
+        border-radius: 18px;
+        margin: 18px 0;
+      }
+      .hero p {
+        margin: 4px 0;
+        color: #e0e7ff;
+      }
+      .hero strong {
+        font-size: 18px;
+      }
+      .section {
+        margin-top: 30px;
+      }
+      .section-head {
+        margin-bottom: 13px;
+      }
+      .section-head p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+      .grid3 {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
+      .kpis {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+        margin: 12px 0;
+      }
+      .kpi {
+        border-top: 3px solid var(--tone, var(--blue));
+      }
+      .kpi .value {
+        font-size: 28px;
+        font-weight: 800;
+        letter-spacing: -0.9px;
+        line-height: 1.2;
+        margin: 9px 0 5px;
+        font-variant-numeric: tabular-nums;
+      }
+      .kpi .label {
+        font-size: 12px;
+        color: var(--muted);
+        font-weight: 650;
+      }
+      .kpi small {
+        display: block;
+        font-size: 11px;
+      }
+      .controls {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+      }
+      .controls label {
+        display: block;
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--muted);
+        margin: 0 0 4px;
+      }
+      .controls input,
+      .controls select,
+      .panel select,
+      .panel input[type="search"] {
+        width: 100%;
+        background: var(--sub);
+        border: 1px solid var(--border);
+        border-radius: 9px;
+        padding: 8px;
+        min-height: 38px;
+      }
+      .upload {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 10px;
+      }
+      .upload select {
+        width: auto;
+        max-width: 100%;
+      }
+      .upload label {
+        font-weight: 700;
+      }
+      .source {
+        font-size: 12px;
+        color: var(--muted);
+        margin: 9px 0;
+        overflow-wrap: anywhere;
+      }
+      .status {
+        white-space: pre-wrap;
+        font-size: 12px;
+        color: var(--muted);
+        margin: 8px 0;
+      }
+      .legend {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        font-size: 11px;
+        color: var(--muted);
+        margin: 8px 0;
+      }
+      .legend i {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        border-radius: 3px;
+        margin-right: 4px;
+      }
+      .bars {
+        display: grid;
+        gap: 12px;
+        margin-top: 14px;
+      }
+      .barlabel {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        font-size: 12px;
+        overflow-wrap: anywhere;
+      }
+      .barlabel b {
+        white-space: nowrap;
+        font-variant-numeric: tabular-nums;
+      }
+      .track {
+        height: 9px;
+        background: var(--track);
+        border-radius: 8px;
+        overflow: hidden;
+        margin: 4px 0;
+      }
+      .fill {
+        height: 100%;
+        border-radius: 8px;
+        min-width: 0;
+        background: var(--blue);
+      }
+      .paired {
+        display: grid;
+        gap: 12px;
+        margin-top: 14px;
+      }
+      .pairname {
+        font-size: 12px;
+        font-weight: 650;
+      }
+      .pairline {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 76px;
+        align-items: center;
+        gap: 9px;
+        font-size: 11px;
+      }
+      .pairline b {
+        text-align: right;
+        font-variant-numeric: tabular-nums;
+      }
+      .tablewrap {
+        overflow: auto;
+        margin-top: 10px;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 12px;
+        text-align: left;
+      }
+      th {
+        background: var(--sub);
+        color: var(--muted);
+        font-weight: 700;
+        white-space: nowrap;
+      }
+      th,
+      td {
+        padding: 10px 9px;
+        border-bottom: 1px solid var(--border);
+        vertical-align: top;
+      }
+      td.num {
+        text-align: right;
+        font-variant-numeric: tabular-nums;
+        white-space: nowrap;
+      }
+      td select {
+        min-width: 170px;
+      }
+      .empty {
+        padding: 16px;
+        color: var(--muted);
+        font-size: 12px;
+      }
+      .info {
+        border-left: 3px solid var(--teal);
+        padding: 9px 12px;
+        background: var(--sub);
+        font-size: 12px;
+        margin: 10px 0;
+        color: var(--muted);
+      }
+      .chips {
+        display: flex;
+        gap: 7px;
+        flex-wrap: wrap;
+        margin-top: 8px;
+      }
+      .chip {
+        background: var(--sub);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 5px 8px;
+        font-size: 12px;
+      }
+      .insight {
+        margin-top: 12px;
+        padding: 12px;
+        background: var(--sub);
+        border-radius: 10px;
+        font-size: 13px;
+      }
+      .scroll {
+        max-height: 480px;
+        overflow: auto;
+      }
+      .scroll th {
+        position: sticky;
+        top: 0;
+      }
+      .metric-select {
+        max-width: 230px;
+      }
+      .desc {
+        min-width: 240px;
+        max-width: 400px;
+        white-space: pre-wrap;
+        overflow-wrap: anywhere;
+      }
+      .small {
+        font-size: 11px;
+      }
+      .footer {
+        margin-top: 30px;
+        color: var(--muted);
+        font-size: 11px;
+      }
+      .tag {
+        color: var(--accent);
+        font-size: 11px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.7px;
+      }
+      .timeline {
+        width: 100%;
+        min-height: 145px;
+        display: block;
+      }
+      .timeline text {
+        fill: var(--muted);
+        font-size: 10px;
+      }
+      .timeline line {
+        stroke: var(--border);
+      }
+      .themebtn {
+        white-space: nowrap;
+      }
+      .decision td:first-child {
+        font-weight: 700;
+        min-width: 130px;
+      }
+      .decision td {
+        min-width: 180px;
+      }
+      .warn {
+        color: var(--orange);
+        font-weight: 700;
+      }
+      .ok {
+        color: var(--green);
+        font-weight: 700;
+      }
+      @media (max-width: 1100px) {
+        .app {
+          grid-template-columns: 175px minmax(0, 1fr);
+        }
+        .kpis {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .grid3 {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+      @media (max-width: 750px) {
+        .app {
+          display: block;
+        }
+        .side {
+          position: static;
+          height: auto;
+          padding: 12px;
+        }
+        .brand {
+          margin: 0 0 8px;
+        }
+        .side nav {
+          display: flex;
+          overflow: auto;
+        }
+        .side a {
+          white-space: nowrap;
+          margin: 0;
+        }
+        .side .note {
+          display: none;
+        }
+        .top {
+          flex-direction: column;
+        }
+        .grid,
+        .grid3 {
+          grid-template-columns: 1fr;
+        }
+        .controls {
+          grid-template-columns: 1fr 1fr;
+        }
+        .main {
+          padding: 18px 12px 35px;
+        }
+        .panel {
+          padding: 14px;
+        }
+        .kpi .value {
+          font-size: 23px;
+        }
+      }
+      @media (max-width: 400px) {
+        .controls {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media print {
+        .side,
+        .actions,
+        .upload,
+        .controls,
+        button,
+        input,
+        select {
+          display: none !important;
+        }
+        .app {
+          display: block;
+        }
+        .main {
+          padding: 0;
+        }
+        .panel {
+          break-inside: avoid;
+          box-shadow: none;
+        }
+        .section {
+          break-before: auto;
+        }
+        .scroll {
+          max-height: none;
+          overflow: visible;
+        }
+        body {
+          background: white;
+          color: black;
+        }
+        .hero {
+          background: white;
+          color: black;
+        }
+        .hero p {
+          color: black;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app">
+      <aside class="side">
+        <div class="brand">
+          <div class="logo">C</div>
+          <div>
+            <strong>CAEST Radar</strong><small>Marketing digital · TCC</small>
+          </div>
+        </div>
+        <nav>
+          <a href="#importar">01 · Bases e filtros</a
+          ><a href="#pesquisa">02 · Questionário</a
+          ><a href="#instagram">03 · Instagram</a
+          ><a href="#integracao">04 · Análises cruzadas</a
+          ><a href="#editorial">05 · Diretrizes</a
+          ><a href="#auditoria">06 · Auditoria e dados</a>
+        </nav>
+        <div class="note">
+          UNEMAT · Rondonópolis e Alto Araguaia<br />Proposta para Barra do
+          Bugres
+        </div>
+      </aside>
+      <main class="main">
+        <header class="top">
+          <div>
+            <div class="eyebrow">Inteligência de comunicação estudantil</div>
+            <h1>Marketing digital do CAEST</h1>
+            <div class="subtitle">
+              Desempenho, percepção dos estudantes e planejamento editorial.
+            </div>
+          </div>
+          <div class="actions">
+            <button id="theme" class="themebtn" aria-pressed="false">
+              ☾ Modo escuro</button
+            ><button onclick="window.print()">Imprimir / PDF</button>
+          </div>
+        </header>
+        <div class="hero">
+          <strong>Da evidência à estratégia</strong>
+          <p>
+            Compare preferências declaradas e oferta editorial. Use os
+            resultados para formular hipóteses e metas de acompanhamento para
+            Barra do Bugres, não para atribuir causalidade.
+          </p>
+        </div>
+        <section id="importar" class="section">
+          <div class="section-head">
+            <h2>Bases e filtros independentes</h2>
+            <p>
+              Selecione os CSVs originais do Meta Business Suite e do Google
+              Forms. A consolidação é automática e local, sem Excel ou
+              preparação manual.
+            </p>
+          </div>
+          <div class="panel">
+            <div class="upload">
+              <label for="importType">Tipo de arquivo</label
+              ><select id="importType">
+                <option value="auto">Detectar automaticamente</option>
+                <option value="survey">Questionário Google Forms</option>
+                <option value="posts">Publicações Instagram</option>
+                <option value="views">Views — série individual</option>
+                <option value="reach">Reach — série individual</option>
+                <option value="interactions">
+                  Interactions — série individual
+                </option>
+                <option value="visits">Visits — série individual</option>
+                <option value="clicks">Link clicks — série individual</option>
+                <option value="follows">Follows — série individual</option>
+                <option value="formats">Top content formats</option>
+                <option value="audience">Audience — audiência</option></select
+              ><input
+                id="file"
+                type="file"
+                accept=".csv,.tsv,.txt"
+                multiple
+                hidden
+              /><button id="choose" class="primary">
+                ＋ Carregar CSVs originais</button
+              ><button id="reset">Limpar todas as bases</button
+              ><button id="saveData">Exportar snapshot JSON</button>
+            </div>
+            <div
+              id="dropzone"
+              tabindex="0"
+              role="button"
+              aria-label="Selecionar ou arrastar CSVs"
+              style="
+                border: 2px dashed var(--border);
+                border-radius: 12px;
+                padding: 19px;
+                margin: 12px 0;
+                text-align: center;
+                cursor: pointer;
+                color: var(--muted);
+              "
+            >
+              <strong>Arraste os CSVs originais para cá</strong><br /><small
+                >Selecione todos de uma vez ou importe um relatório por vez ·
+                UTF-8 / UTF-16</small
+              >
+            </div>
+            <div
+              id="status"
+              class="status"
+              role="status"
+              aria-live="polite"
+            ></div>
+            <div class="tablewrap" id="inventory"></div>
+            <div id="sources" class="source"></div>
+            <div class="info">
+              Importação substitui somente o relatório correspondente. As seis
+              séries são reunidas pela data; ausência de valor não vira zero.
+              Use relatórios da mesma conta e do mesmo intervalo, sempre que
+              possível. Para mudar de conta, limpe as bases antes de importar o
+              novo lote. Os dados permanecem nesta sessão; nenhuma planilha
+              intermediária é necessária.
+            </div>
+            <div class="controls">
+              <div>
+                <label for="campus">Campus — questionário</label
+                ><select id="campus"></select>
+              </div>
+              <div>
+                <label for="course">Curso — questionário</label
+                ><select id="course"></select>
+              </div>
+              <div>
+                <label for="account">Perfil — publicações</label
+                ><select id="account"></select>
+              </div>
+              <div>
+                <label for="from">Início — publicações e série diária</label
+                ><input id="from" type="date" />
+              </div>
+              <div>
+                <label for="to">Fim — publicações e série diária</label
+                ><input id="to" type="date" />
+              </div>
+              <div>
+                <label for="dailyScope">Série diária: origem confirmada?</label
+                ><select id="dailyScope">
+                  <option value="no">Não confirmada</option>
+                  <option value="yes">
+                    Confirmada para o perfil selecionado
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div class="actions" style="margin-top: 12px">
+              <button id="clear">Limpar filtros</button>
+            </div>
+            <div id="periods" class="source"></div>
+          </div>
+        </section>
+        <section id="pesquisa" class="section">
+          <div class="section-head">
+            <div class="tag">Percepção estudantil</div>
+            <h2>Questionário</h2>
+            <p>
+              Contagens e percentuais recalculados sobre respostas válidas de
+              cada pergunta.
+            </p>
+          </div>
+          <div id="surveyKpis" class="kpis"></div>
+          <div id="surveyCharts" class="grid3"></div>
+          <div class="panel" style="margin-top: 14px">
+            <h3>Conferência dos campos do questionário</h3>
+            <p class="muted">
+              Cabeçalhos reconhecidos e preenchimento no recorte atual. Campo
+              não reconhecido não equivale a ausência de resposta.
+            </p>
+            <div id="surveyAudit" class="tablewrap"></div>
+          </div>
+          <div class="grid" style="margin-top: 14px">
+            <div class="panel">
+              <h3>Sugestões abertas — temas indicativos</h3>
+              <div id="suggestions"></div>
+              <small
+                >Classificação por palavras-chave, não substitui análise
+                qualitativa humana. Respostas sem mudança e respostas vazias são
+                distintas.</small
+              >
+            </div>
+            <div class="panel">
+              <h3>Respostas abertas — leitura qualitativa</h3>
+              <div class="scroll" id="quotes"></div>
+              <small
+                >Evite divulgar respostas identificáveis; a base permanece
+                local.</small
+              >
+            </div>
+          </div>
+        </section>
+        <section id="instagram" class="section">
+          <div class="section-head">
+            <div class="tag">Desempenho observado</div>
+            <h2>Instagram — publicações</h2>
+            <p>
+              Métricas acumuladas da exportação, não necessariamente relativas
+              ao período de publicação.
+            </p>
+          </div>
+          <div id="postKpis" class="kpis"></div>
+          <div class="grid">
+            <div class="panel">
+              <h3>Regularidade mensal das publicações</h3>
+              <div id="monthlyPosts"></div>
+              <div id="regularity" class="insight"></div>
+            </div>
+            <div class="panel">
+              <h3>Distribuição por formato</h3>
+              <div id="postFormats"></div>
+              <div id="extraFormats" class="info"></div>
+            </div>
+          </div>
+          <div class="panel" style="margin-top: 14px">
+            <h3>Desempenho por formato</h3>
+            <div id="formatPerformance" class="tablewrap"></div>
+            <small
+              >Mediana por publicação; taxa ponderada = interações / alcance nos
+              registros com ambos disponíveis. Interações calculadas = curtidas
+              + comentários + compartilhamentos + salvamentos.</small
+            >
+          </div>
+          <div class="panel" style="margin-top: 14px">
+            <h3>Ranking de publicações</h3>
+            <div class="actions">
+              <select class="metric-select" id="rankingMetric">
+                <option value="views">Visualizações</option>
+                <option value="reach">Alcance</option>
+                <option value="interactions">Interações</option>
+                <option value="shares">Compartilhamentos</option>
+                <option value="saves">Salvamentos</option>
+                <option value="rate">Taxa de engajamento</option>
+              </select>
+            </div>
+            <div id="ranking" class="tablewrap"></div>
+          </div>
+          <div class="panel" style="margin-top: 14px">
+            <h3>Série diária — relatório separado</h3>
+            <p id="dailyWarning" class="info"></p>
+            <div id="dailyKpis" class="kpis"></div>
+            <label for="metric">Indicador mensal</label
+            ><select id="metric" class="metric-select">
+              <option value="views">Visualizações</option>
+              <option value="reach">Alcance diário somado</option>
+              <option value="interactions">Interações</option>
+              <option value="visits">Visitas</option>
+              <option value="clicks">Cliques em links</option>
+              <option value="follows">Novos seguidores registrados</option>
+            </select>
+            <div id="monthlyDaily"></div>
+            <div id="dailyCoverage" class="source"></div>
+          </div>
+          <div class="panel" style="margin-top: 14px">
+            <h3>Audiência — retrato agregado dos seguidores</h3>
+            <div id="audienceKpis" class="kpis"></div>
+            <div id="audienceCharts" class="grid"></div>
+            <p class="info">
+              Audience.csv não contém série diária nem vínculo individual com o
+              questionário. O retrato de audiência é independente do filtro de
+              datas e de campus; confirme a conta de origem. Cidades e países
+              incluem apenas os principais locais reportados.
+            </p>
+          </div>
+        </section>
+        <section id="integracao" class="section">
+          <div class="section-head">
+            <div class="tag">Triangulação de evidências</div>
+            <h2>Análises cruzadas</h2>
+            <p>
+              Percentuais com denominadores explícitos. Cruzamentos entre bases
+              são agregados, sem ligação individual.
+            </p>
+          </div>
+          <div id="surveyCross" class="grid"></div>
+          <div class="grid" style="margin-top: 14px">
+            <div class="panel">
+              <h3>Preferência × oferta de formatos</h3>
+              <div id="formatCross"></div>
+              <small
+                >Denominadores: respostas válidas e publicações com formato
+                conhecido. Stories não observados individualmente não são
+                tratados como zero.</small
+              >
+            </div>
+            <div class="panel">
+              <h3>Preferência × oferta de temas</h3>
+              <div id="topicCross"></div>
+              <small
+                >Assunto principal autodeclarado × tema principal da legenda
+                (classificação revisável). Sem preferência e não classificáveis
+                são preservados nos denominadores.</small
+              >
+            </div>
+          </div>
+          <div class="panel" style="margin-top: 14px">
+            <h3>Desempenho por tema editorial</h3>
+            <div id="topicPerformance" class="tablewrap"></div>
+            <small
+              >Temas sugeridos pelas legendas; revise as classificações antes de
+              interpretar. n pequeno e métricas acumuladas limitam a
+              comparação.</small
+            >
+          </div>
+          <div class="panel" style="margin-top: 14px">
+            <h3>Exposição × frequência editorial e imagem institucional</h3>
+            <div id="triangulation"></div>
+          </div>
+        </section>
+        <section id="editorial" class="section">
+          <div class="section-head">
+            <div class="tag">Aplicação em Barra do Bugres</div>
+            <h2>Diretrizes de marketing digital</h2>
+            <p>
+              Recomendações geradas a partir dos filtros; as metas são propostas
+              para um piloto, não resultados verificados.
+            </p>
+          </div>
+          <div class="panel">
+            <h3>Matriz de evidência, decisão e monitoramento</h3>
+            <div id="directions" class="tablewrap"></div>
+          </div>
+          <div class="grid" style="margin-top: 14px">
+            <div class="panel">
+              <h3>Calendário piloto semanal</h3>
+              <div id="calendar" class="tablewrap"></div>
+              <small
+                >Adapte a frequência à capacidade da equipe e aos editais.
+                Publicações urgentes não devem esperar pelo calendário.</small
+              >
+            </div>
+            <div class="panel">
+              <h3>Protocolo de monitoramento</h3>
+              <div id="monitor" class="tablewrap"></div>
+              <small
+                >Estabeleça a linha de base durante os primeiros 30 dias e
+                compare períodos equivalentes. Mensure resultados aos 7 dias de
+                cada publicação para comparabilidade futura.</small
+              >
+            </div>
+          </div>
+        </section>
+        <section id="auditoria" class="section">
+          <div class="section-head">
+            <h2>Auditoria, classificação e rastreabilidade</h2>
+            <p>
+              Confira cobertura, escopo e categorias atribuídas. A edição de
+              tema é registrada para exportação.
+            </p>
+          </div>
+          <div class="panel">
+            <h3>Qualidade e limites das bases</h3>
+            <div id="quality"></div>
+          </div>
+          <div class="panel" style="margin-top: 14px">
+            <h3>Classificação editorial das publicações</h3>
+            <p class="muted">
+              Sugestão automática baseada na legenda. Revise manualmente quando
+              necessário; publicações sem legenda ficam não classificáveis.
+            </p>
+            <div class="actions">
+              <input
+                type="search"
+                id="postSearch"
+                placeholder="Buscar legenda ou formato"
+                style="max-width: 330px"
+              /><button id="exportPosts">
+                Exportar CSV de publicações classificadas
+              </button>
+            </div>
+            <div id="auditPosts" class="tablewrap scroll"></div>
+          </div>
+        </section>
+        <footer class="footer">
+          CAEST Radar · dados processados localmente · análise descritiva e
+          exploratória, sem inferência causal. Não compartilhe respostas abertas
+          sem revisão de privacidade.
+        </footer>
+      </main>
+    </div>
+    <script type="application/json" id="seed">
+      {
+        "survey": [],
+        "posts": [],
+        "daily": [],
+        "formats": {},
+        "audience": null
+      }
+    </script>
+    <script>
+      "use strict";
+      const $ = (id) => document.getElementById(id),
+        original = JSON.parse($("seed").textContent),
+        clone = (o) => JSON.parse(JSON.stringify(o));
+      let state = clone(original),
+        sources = {
+          survey: "Não importado",
+          posts: "Não importado",
+          daily: "Não importado",
+          formats: "Não importado",
+          audience: "Não importado",
+        },
+        metricSources = {};
+      const norm = (v) =>
+          String(v ?? "")
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, " ")
+            .trim(),
+        txt = (v) => String(v ?? "").trim(),
+        esc = (v) =>
+          String(v ?? "").replace(
+            /[&<>"']/g,
+            (c) =>
+              ({
+                "&": "&amp;",
+                "<": "&lt;",
+                ">": "&gt;",
+                '"': "&quot;",
+                "'": "&#39;",
+              })[c],
+          );
+      const N = (v) => {
+        if (v === null || v === undefined || txt(v) === "") return null;
+        let s = txt(v);
+        if (/^[-+]?\d{1,3}(\.\d{3})+,\d+$/.test(s))
+          s = s.replace(/\./g, "").replace(",", ".");
+        else if (/^\d{1,3}(\.\d{3})+$/.test(s)) s = s.replace(/\./g, "");
+        else if (/^\d{1,3}(,\d{3})+$/.test(s)) s = s.replace(/,/g, "");
+        else if (/^[-+]?\d+,\d+$/.test(s)) s = s.replace(",", ".");
+        const n = Number(s);
+        return Number.isFinite(n) && n >= 0 ? n : null;
+      };
+      const fmt = (n, d = 0) =>
+          n === null || !Number.isFinite(n)
+            ? "—"
+            : n.toLocaleString("pt-BR", {
+                minimumFractionDigits: d,
+                maximumFractionDigits: d,
+              }),
+        pct = (a, b) => (b ? (100 * a) / b : null),
+        pp = (a, b) => (a === null || b === null ? null : a - b),
+        perc = (n) => (n === null ? "—" : fmt(n, 1) + "%"),
+        avg = (a) =>
+          a.length ? a.reduce((s, v) => s + v, 0) / a.length : null,
+        median = (a) => {
+          a = a.slice().sort((x, y) => x - y);
+          return a.length
+            ? (a[(a.length - 1) >> 1] + a[a.length >> 1]) / 2
+            : null;
+        };
+      const total = (a, k) => {
+          let v = a.map((r) => N(r[k])).filter((x) => x !== null);
+          return v.length ? v.reduce((s, x) => s + x, 0) : null;
+        },
+        valid = (a, k) => a.filter((r) => txt(r[k]) !== "").length,
+        count = (a, k, fn) =>
+          a.filter((r) => txt(r[k]) !== "" && fn(r[k])).length,
+        share = (a, k, fn) => pct(count(a, k, fn), valid(a, k));
+      const unique = (a) => [...new Set(a.filter((x) => txt(x) !== ""))],
+        same = (a, b) => norm(a) === norm(b),
+        by = (a, k) => {
+          let m = new Map();
+          for (const r of a) {
+            const x = txt(r[k]);
+            if (x) m.set(x, (m.get(x) || 0) + 1);
+          }
+          return [...m].sort((x, y) => y[1] - x[1]);
+        },
+        group = (a, k) =>
+          unique(a.map((r) => r[k])).map((x) => [
+            x,
+            a.filter((r) => r[k] === x),
+          ]);
+      const dailyKeys = [
+          "views",
+          "reach",
+          "interactions",
+          "visits",
+          "clicks",
+          "follows",
+        ],
+        metrics = {
+          views: "Visualizações",
+          reach: "Alcance",
+          interactions: "Interações",
+          visits: "Visitas ao perfil",
+          clicks: "Cliques em links",
+          follows: "Follows registrados",
+          shares: "Compartilhamentos",
+          saves: "Salvamentos",
+          rate: "Taxa ponderada",
+        };
+      const topics = [
+        "Auxílios e bolsas",
+        "Eventos e atividades",
+        "Serviços de apoio",
+        "Dicas de estudo",
+        "Prazos e editais",
+        "Outros",
+        "Não classificável",
+      ];
+      function format(v) {
+        let s = norm(v);
+        if (/reel|video curto/.test(s)) return "Reels";
+        if (/carousel|carross/.test(s)) return "Carrossel";
+        if (/story|stories/.test(s)) return "Stories";
+        if (/image|imagem|foto|photo/.test(s)) return "Imagem única";
+        if (/nao uso/.test(s)) return "Não usa Instagram";
+        if (/preferencia/.test(s)) return "Sem preferência";
+        return txt(v) || "Não informado";
+      }
+      function surveyTopic(v) {
+        let s = norm(v);
+        if (/preferencia/.test(s)) return "Sem preferência";
+        if (/prazos|etapas de editais/.test(s)) return "Prazos e editais";
+        if (/auxilio|bolsa/.test(s)) return "Auxílios e bolsas";
+        if (/evento|atividade/.test(s)) return "Eventos e atividades";
+        if (/servico|apoio/.test(s)) return "Serviços de apoio";
+        if (/dica|estudo|organizacao/.test(s)) return "Dicas de estudo";
+        return txt(v) || "Não informado";
+      }
+      function classify(v) {
+        let s = norm(v);
+        if (s.length < 25) return "Não classificável";
+        if (
+          /\bbolsa(s)?\b|bolsaintegradora|auxilio|assistencia estudantil/.test(
+            s,
+          ) &&
+          !/secomp|oratoria/.test(s)
+        )
+          return "Auxílios e bolsas";
+        if (
+          /edital|vagas remanescentes|cronograma|prazo de inscricao/.test(s) &&
+          !/copa|cinema|evento/.test(s)
+        )
+          return "Prazos e editais";
+        if (
+          /farmacia|sofa|cadeira de rodas|kit de emergencia|acolhimento|bem estar/.test(
+            s,
+          )
+        )
+          return "Serviços de apoio";
+        if (/dicas de estudo|organizacao academica|como estudar/.test(s))
+          return "Dicas de estudo";
+        if (
+          /evento|copa|jogo|cinema|semana de extensao|roda de conversa|encontro|oratoria|projeto|palestra|secomp/.test(
+            s,
+          )
+        )
+          return "Eventos e atividades";
+        return "Outros";
+      }
+      function prep() {
+        state.posts = state.posts.map((r) => ({
+          ...r,
+          format: format(r.format),
+          topic: topics.includes(r.topic) ? r.topic : classify(r.description),
+          review: r.review || "Automática",
+        }));
+        state.survey = state.survey.map((r) => ({
+          ...r,
+          format: format(r.format),
+          topic: surveyTopic(r.topic),
+        }));
+      }
+      prep();
+      function date(v, order = "MDY") {
+        const s = txt(v);
+        let m = s.match(/^(\d{4})[-/](\d{1,2})[-/](\d{1,2})/);
+        if (m) return dateCheck(+m[1], +m[2], +m[3]);
+        m = s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})/);
+        if (m)
+          return dateCheck(
+            +m[3],
+            order === "DMY" ? +m[2] : +m[1],
+            order === "DMY" ? +m[1] : +m[2],
+          );
+        return "";
+      }
+      function dateCheck(y, m, d) {
+        let t = new Date(Date.UTC(y, m - 1, d));
+        return t.getUTCFullYear() === y &&
+          t.getUTCMonth() === m - 1 &&
+          t.getUTCDate() === d
+          ? t.toISOString().slice(0, 10)
+          : "";
+      }
+      function range(a) {
+        let ds = a
+          .map((r) => r.date)
+          .filter(Boolean)
+          .sort();
+        return ds.length ? ds[0] + " a " + ds.at(-1) : "Sem datas válidas";
+      }
+      function chooseOptions(id, items, first) {
+        let el = $(id),
+          old = el.value;
+        el.innerHTML =
+          '<option value="">' +
+          esc(first) +
+          "</option>" +
+          items
+            .sort()
+            .map((x) => `<option value="${esc(x)}">${esc(x)}</option>`)
+            .join("");
+        if (items.includes(old)) el.value = old;
+      }
+      function filters() {
+        chooseOptions(
+          "campus",
+          unique(state.survey.map((r) => r.campus)),
+          "Todos os campi",
+        );
+        chooseOptions(
+          "course",
+          unique(
+            state.survey
+              .filter(
+                (r) => !$("campus").value || r.campus === $("campus").value,
+              )
+              .map((r) => r.course),
+          ),
+          "Todos os cursos",
+        );
+        chooseOptions(
+          "account",
+          unique(state.posts.map((r) => r.account)),
+          "Todos os perfis",
+        );
+        if (
+          !$("account").value &&
+          unique(state.posts.map((r) => r.account)).includes(
+            "caest.unemat.aia.roo",
+          )
+        )
+          $("account").value = "caest.unemat.aia.roo";
+      }
+      function inDate(r) {
+        return (
+          (!$("from").value || (r.date && r.date >= $("from").value)) &&
+          (!$("to").value || (r.date && r.date <= $("to").value))
+        );
+      }
+      function selected() {
+        let s = state.survey.filter(
+          (r) =>
+            (!$("campus").value || r.campus === $("campus").value) &&
+            (!$("course").value || r.course === $("course").value),
+        );
+        let p = state.posts.filter(
+          (r) =>
+            (!$("account").value || r.account === $("account").value) &&
+            inDate(r),
+        );
+        let d = state.daily.filter(inDate);
+        return { s, p, d };
+      }
+      function interaction(r) {
+        let a = ["likes", "shares", "comments", "saves"].map((k) => N(r[k]));
+        return a.every((x) => x !== null) ? a.reduce((s, v) => s + v, 0) : null;
+      }
+      function rate(r) {
+        let i = interaction(r),
+          a = N(r.reach);
+        return i !== null && a > 0 ? (100 * i) / a : null;
+      }
+      function weighted(p) {
+        let a = p.filter((r) => rate(r) !== null);
+        return a.length
+          ? pct(
+              a.reduce((s, r) => s + interaction(r), 0),
+              a.reduce((s, r) => s + N(r.reach), 0),
+            )
+          : null;
+      }
+      function kpi(l, v, n, c = "blue") {
+        return `<article class="panel kpi" style="--tone:var(--${c})"><div class="label">${esc(l)}</div><div class="value">${esc(v)}</div><small>${esc(n)}</small></article>`;
+      }
+      function empty(t = "Sem dados válidos neste recorte.") {
+        return `<div class="empty">${esc(t)}</div>`;
+      }
+      function table(h, rows, cls = "") {
+        return rows.length
+          ? `<table class="${cls}"><thead><tr>${h.map((x) => `<th>${esc(x)}</th>`).join("")}</tr></thead><tbody>${rows.map((r) => `<tr>${r.map((x) => `<td>${esc(x)}</td>`).join("")}</tr>`).join("")}</tbody></table>`
+          : empty();
+      }
+      function bars(items, den = null, color = "blue") {
+        if (!items.length) return empty();
+        let max = den ?? Math.max(...items.map((x) => x[1]), 1);
+        return `<div class="bars">${items.map(([l, v]) => `<div><div class="barlabel"><span>${esc(l)}</span><b>${fmt(v)}${den !== null ? " · " + perc(pct(v, den)) : ""}</b></div><div class="track"><div class="fill" style="width:${max ? Math.max(0, Math.min(100, (100 * v) / max)) : 0}%;background:var(--${color})"></div></div></div>`).join("")}</div>`;
+      }
+      function paired(items, a, b) {
+        if (!items.length) return empty();
+        return `<div class="legend"><span><i style="background:var(--blue)"></i>${esc(a)}</span><span><i style="background:var(--teal)"></i>${esc(b)}</span></div><div class="paired">${items.map(([l, x, y]) => `<div><div class="pairname">${esc(l)}</div>${[x, y].map((v, i) => `<div class="pairline"><div class="track"><div class="fill" style="width:${v === null ? 0 : Math.max(0, Math.min(v, 100))}%;background:var(--${i ? "teal" : "blue"})"></div></div><b>${perc(v)}</b></div>`).join("")}</div>`).join("")}</div>`;
+      }
+      function panel(title, content, note = "") {
+        return `<article class="panel"><h3>${esc(title)}</h3>${content}${note ? `<p class="small muted">${esc(note)}</p>` : ""}</article>`;
+      }
+      const surveyLabels = {
+        campus: "Campus",
+        course: "Curso",
+        channel: "Canal preferido",
+        seen: "Exposição nos últimos 30 dias",
+        efficacy: "Eficácia da informação a tempo",
+        utility: "Utilidade (escala 1–5)",
+        image: "Imagem institucional",
+        topic: "Assunto preferido",
+        kind: "Tipo de conteúdo preferido",
+        format: "Formato preferido",
+      };
+      const isIG = (v) => same(v, "Instagram"),
+        isSeen = (v) => same(v, "Sim"),
+        isEffective = (v) => /^(muito|extremamente) eficaz$/.test(norm(v)),
+        positive = (v) => norm(v).startsWith("melhoraram"),
+        utilityValues = (a) =>
+          a
+            .map((r) => N(r.utility))
+            .filter((x) => Number.isInteger(x) && x >= 1 && x <= 5),
+        highUtility = (v) => Number.isInteger(N(v)) && N(v) >= 4 && N(v) <= 5;
+      function surveyRender(s) {
+        const u = utilityValues(s),
+          cards = [
+            ["Respondentes", fmt(s.length), "Recorte atual", "blue"],
+            [
+              "Instagram preferido",
+              perc(share(s, "channel", isIG)),
+              `${count(s, "channel", isIG)}/${valid(s, "channel")} respostas válidas`,
+              "teal",
+            ],
+            [
+              "Exposição declarada",
+              perc(share(s, "seen", isSeen)),
+              `${count(s, "seen", isSeen)}/${valid(s, "seen")} respostas válidas`,
+              "pink",
+            ],
+            [
+              "Eficácia alta / extrema",
+              perc(share(s, "efficacy", isEffective)),
+              `${count(s, "efficacy", isEffective)}/${valid(s, "efficacy")} válidas, inclui não sei avaliar`,
+              "green",
+            ],
+            [
+              "Utilidade média",
+              u.length ? fmt(avg(u), 2) + " / 5" : "—",
+              `${u.length} notas válidas`,
+              "blue",
+            ],
+            [
+              "Imagem positiva",
+              perc(share(s, "image", positive)),
+              `${count(s, "image", positive)}/${valid(s, "image")} respostas válidas`,
+              "green",
+            ],
+            [
+              "Preferência por Reels",
+              perc(share(s, "format", (v) => v === "Reels")),
+              `${count(s, "format", (v) => v === "Reels")}/${valid(s, "format")} respostas válidas`,
+              "pink",
+            ],
+            [
+              "Preferência WhatsApp",
+              perc(share(s, "channel", (v) => same(v, "WhatsApp"))),
+              `${count(s, "channel", (v) => same(v, "WhatsApp"))}/${valid(s, "channel")} respostas válidas`,
+              "orange",
+            ],
+          ];
+        $("surveyKpis").innerHTML = cards.map((x) => kpi(...x)).join("");
+        $("surveyCharts").innerHTML = Object.entries(surveyLabels)
+          .map(([k, l]) => {
+            const mapped = Object.hasOwn(state.surveyMapping || {}, k),
+              n = k === "utility" ? u.length : valid(s, k);
+            let items = by(s, k);
+            if (k === "utility" && n)
+              items = [1, 2, 3, 4, 5].map((v) => [
+                String(v),
+                u.filter((x) => x === v).length,
+              ]);
+            if (k === "efficacy" && n) {
+              const order = [
+                "Extremamente eficaz",
+                "Muito eficaz",
+                "Moderadamente eficaz",
+                "Pouco eficaz",
+                "Nada eficaz",
+                "Não consigo avaliar",
+              ];
+              items.sort(
+                (a, b) =>
+                  (order.indexOf(a[0]) < 0 ? 99 : order.indexOf(a[0])) -
+                  (order.indexOf(b[0]) < 0 ? 99 : order.indexOf(b[0])),
+              );
+            }
+            return panel(
+              l,
+              mapped
+                ? bars(items, n)
+                : empty(
+                    state.survey.length
+                      ? "Cabeçalho não reconhecido. Consulte a conferência."
+                      : "Importe o questionário CSV.",
+                  ),
+              mapped
+                ? `${n} válidas · ${s.length - n} ausentes ou inválidas`
+                : "Campo não importado",
+            );
+          })
+          .join("");
+        const names = {
+          date: "Carimbo de data/hora",
+          ...surveyLabels,
+          suggestion: "Sugestões abertas",
+        };
+        $("surveyAudit").innerHTML = table(
+          ["Campo", "Cabeçalho do CSV", "Preenchidas", "Vazias / inválidas"],
+          Object.keys(surveyOriginalHeaders).map((k) => {
+            const h = state.surveyMapping?.[k],
+              n = k === "utility" ? u.length : valid(s, k);
+            return [
+              names[k],
+              h || "Não reconhecido",
+              h ? fmt(n) : "—",
+              h ? fmt(s.length - n) : "—",
+            ];
+          }),
+        );
+        const filled = s.filter((r) => txt(r.suggestion)),
+          suggestion = filled.filter((r) => norm(r.suggestion)),
+          punct = filled.length - suggestion.length;
+        function code(v) {
+          let n = norm(v);
+          if (/divulg|alcance|visibilidade/.test(n))
+            return "Divulgação do perfil";
+          if (/exclusiv|cuidar da conta|responsavel/.test(n))
+            return "Gestão dedicada";
+          if (/participacao/.test(n)) return "Participação estudantil";
+          if (/extensao|projetos/.test(n)) return "Projetos de extensão";
+          if (/whatsapp/.test(n))
+            return /nao.*mud|nada/.test(n)
+              ? "WhatsApp — sem mudança sugerida"
+              : "WhatsApp";
+          if (/^(nao|nenhum|nehum|nada|sem mudanca)/.test(n))
+            return "Sem mudança sugerida";
+          return "Outras sugestões";
+        }
+        const mapped = Object.hasOwn(state.surveyMapping || {}, "suggestion");
+        $("suggestions").innerHTML = mapped
+          ? bars(
+              by(
+                suggestion.map((r) => ({ code: code(r.suggestion) })),
+                "code",
+              ),
+              suggestion.length,
+            ) +
+            `<div class="source">${suggestion.length} respostas textuais interpretáveis · ${punct} apenas pontuação / sem conteúdo interpretável · ${s.length - filled.length} vazias.</div>`
+          : empty(
+              state.survey.length
+                ? "Cabeçalho de sugestões não reconhecido."
+                : "Importe o questionário CSV.",
+            );
+        $("quotes").innerHTML =
+          mapped && filled.length
+            ? `<div class="bars">${filled.map((r) => `<div class="insight"><small>${esc(norm(r.suggestion) ? code(r.suggestion) : "Sem conteúdo interpretável")}</small><div style="white-space:pre-wrap">${esc(r.suggestion)}</div></div>`).join("")}</div>`
+            : empty(
+                mapped
+                  ? "Nenhuma resposta aberta preenchida neste recorte."
+                  : "Campo de sugestões não importado.",
+              );
+      }
+      function monthly(a, k, counts = false) {
+        let ds = a
+          .filter((r) => r.date)
+          .map((r) => r.date.slice(0, 7))
+          .sort();
+        if (!ds.length) return [];
+        let start = ds[0],
+          end = ds.at(-1),
+          y = +start.slice(0, 4),
+          m = +start.slice(5),
+          res = [];
+        for (let i = 0; i < 600; i++) {
+          let key = y + "-" + String(m).padStart(2, "0");
+          if (key > end) break;
+          let rows = a.filter((r) => r.date && r.date.startsWith(key));
+          res.push([key, counts ? rows.length : total(rows, k)]);
+          m++;
+          if (m === 13) {
+            m = 1;
+            y++;
+          }
+        }
+        return res;
+      }
+      function regular(p) {
+        let d = unique(p.map((r) => r.date)).sort(),
+          gap = null;
+        if (d.length > 1)
+          gap = Math.max(
+            ...d
+              .slice(1)
+              .map((x, i) => (Date.parse(x) - Date.parse(d[i])) / 864e5),
+          );
+        return { gap, days: d.length, months: monthly(p, "", true) };
+      }
+      function rankValue(r, k) {
+        return k === "interactions"
+          ? interaction(r)
+          : k === "rate"
+            ? rate(r)
+            : N(r[k]);
+      }
+      function postRender(p, d) {
+        let complete = p.map(interaction).filter((x) => x !== null),
+          reg = regular(p);
+        $("postKpis").innerHTML = [
+          kpi(
+            "Publicações",
+            sources.posts === "Não importado" ? "—" : fmt(p.length),
+            "No perfil e período selecionados",
+          ),
+          kpi(
+            "Visualizações",
+            fmt(total(p, "views")),
+            `${p.filter((r) => N(r.views) !== null).length}/${p.length} com dados`,
+            "teal",
+          ),
+          kpi(
+            "Alcance somado",
+            fmt(total(p, "reach")),
+            "Não representa pessoas únicas",
+            "pink",
+          ),
+          kpi(
+            "Interações calculadas",
+            fmt(complete.length ? complete.reduce((a, b) => a + b, 0) : null),
+            `${complete.length}/${p.length} com 4 componentes`,
+            "green",
+          ),
+          kpi(
+            "Engajamento ponderado",
+            perc(weighted(p)),
+            "Interações / soma do alcance",
+          ),
+          kpi(
+            "Compartilhamentos",
+            fmt(total(p, "shares")),
+            "Ações acumuladas",
+            "teal",
+          ),
+          kpi(
+            "Salvamentos",
+            fmt(total(p, "saves")),
+            "Ações acumuladas",
+            "pink",
+          ),
+          kpi(
+            "Maior intervalo",
+            reg.gap === null ? "—" : fmt(reg.gap) + " dias",
+            "Entre dias observados",
+            "orange",
+          ),
+        ].join("");
+        $("monthlyPosts").innerHTML = bars(reg.months);
+        $("regularity").textContent =
+          `${reg.days} dias distintos de publicação. ${reg.months.filter((x) => x[1] === 0).length} meses sem registros entre o primeiro e o último mês observado. Ausência de registros não comprova inatividade; meses de borda podem ser parciais.`;
+        $("postFormats").innerHTML = bars(by(p, "format"), p.length, "teal");
+        $("extraFormats").textContent = Object.keys(state.formats).length
+          ? `Relatório separado, escopo não confirmado, sem filtro: ${Object.entries(
+              state.formats,
+            )
+              .map(([k, v]) => k + " " + fmt(v))
+              .join(" · ")}. Não somar às publicações.`
+          : "Sem relatório agregado de formatos.";
+        $("formatPerformance").innerHTML = table(
+          [
+            "Formato",
+            "n",
+            "Mediana views",
+            "Mediana alcance",
+            "Interações",
+            "Taxa ponderada",
+            "Amostra",
+          ],
+          group(p, "format").map(([k, a]) => [
+            k,
+            fmt(a.length),
+            fmt(median(a.map((r) => N(r.views)).filter((x) => x !== null)), 1),
+            fmt(median(a.map((r) => N(r.reach)).filter((x) => x !== null)), 1),
+            fmt(
+              total(
+                a.map((r) => ({ v: interaction(r) })),
+                "v",
+              ),
+            ),
+            perc(weighted(a)),
+            a.length < 5 ? "Exploratória (n<5)" : "Descritiva",
+          ]),
+        );
+        rankRender(p);
+        $("dailyWarning").textContent =
+          $("dailyScope").value === "yes" && $("account").value
+            ? "Origem confirmada pelo usuário para o perfil selecionado. Os totais diários continuam separados das métricas Lifetime."
+            : "Origem do perfil não confirmada. Os indicadores diários são exibidos separadamente e não são atribuídos a um campus ou perfil selecionado.";
+        $("dailyKpis").innerHTML = dailyKeys
+          .map((k, i) =>
+            kpi(
+              k === "reach" ? "Alcance diário somado" : metrics[k],
+              fmt(total(d, k)),
+              `${d.filter((r) => N(r[k]) !== null).length}/${d.length} datas com dados`,
+              ["blue", "teal", "pink", "green"][i % 4],
+            ),
+          )
+          .join("");
+        let key = $("metric").value,
+          mm = monthly(d, key);
+        $("monthlyDaily").innerHTML = bars(mm.filter((x) => x[1] !== null));
+        $("dailyCoverage").textContent =
+          `${range(d)} · ${d.length} datas observadas. Meses sem valores não são preenchidos com zero. Follows não equivale ao saldo líquido.`;
+      }
+      function safeLink(v) {
+        try {
+          const u = new URL(v);
+          return ["http:", "https:"].includes(u.protocol) ? u.href : "";
+        } catch (e) {
+          return "";
+        }
+      }
+      function rankRender(p) {
+        let k = $("rankingMetric").value,
+          a = p
+            .map((r) => [r, rankValue(r, k)])
+            .filter((x) => x[1] !== null)
+            .sort((a, b) => b[1] - a[1])
+            .slice(0, 10);
+        $("ranking").innerHTML = a.length
+          ? `<table><thead><tr><th>Data</th><th>Formato</th><th>Legenda / publicação</th><th>${esc(metrics[k])}</th></tr></thead><tbody>${a.map(([r, v]) => `<tr><td>${esc(r.date)}</td><td>${esc(r.format)}</td><td class="desc">${esc(txt(r.description).slice(0, 180) || "Sem legenda")} ${safeLink(r.url) ? `<a href="${esc(safeLink(r.url))}" target="_blank" rel="noopener">Abrir</a>` : ""}</td><td class="num">${k === "rate" ? perc(v) : fmt(v)}</td></tr>`).join("")}</tbody></table>`
+          : empty();
+      }
+      function cross(a, first, second) {
+        let labels = unique(a.map((r) => txt(r[second]))).sort(),
+          groups = group(
+            a.filter((r) => txt(r[first])),
+            first,
+          );
+        return table(
+          [surveyLabels[first] || first, "n válidas", ...labels],
+          groups.map(([g, rows]) => {
+            let n = valid(rows, second);
+            return [
+              g,
+              fmt(n),
+              ...labels.map(
+                (l) =>
+                  `${count(rows, second, (v) => txt(v) === l)} (${perc(share(rows, second, (v) => txt(v) === l))})`,
+              ),
+            ];
+          }),
+        );
+      }
+      function integrate(s, p, d) {
+        let configs = [
+          ["Campus × canal", "campus", "channel"],
+          ["Campus × exposição", "campus", "seen"],
+          ["Campus × formato", "campus", "format"],
+          ["Campus × assunto", "campus", "topic"],
+          ["Exposição × eficácia", "seen", "efficacy"],
+          ["Exposição × imagem", "seen", "image"],
+          ["Canal × exposição", "channel", "seen"],
+          ["Exposição × utilidade", "seen", "utility"],
+        ];
+        $("surveyCross").innerHTML = configs
+          .map(([t, a, b]) =>
+            panel(
+              t,
+              `<div class="tablewrap">${cross(s, a, b)}</div>`,
+              "Percentual por linha, entre respostas válidas.",
+            ),
+          )
+          .join("");
+        let fset = [
+          "Reels",
+          "Imagem única",
+          "Carrossel",
+          "Stories",
+          "Sem preferência",
+          "Não usa Instagram",
+        ];
+        let known = p.filter((r) => r.format !== "Não informado");
+        let frows = fset.map((f) => [
+          f,
+          share(s, "format", (v) => v === f),
+          ["Sem preferência", "Não usa Instagram"].includes(f) ||
+          (f === "Stories" && !known.some((r) => r.format === "Stories"))
+            ? null
+            : pct(known.filter((r) => r.format === f).length, known.length),
+        ]);
+        $("formatCross").innerHTML =
+          paired(
+            frows,
+            "Preferência (n=" + valid(s, "format") + ")",
+            "Oferta (n=" + known.length + ")",
+          ) +
+          table(
+            ["Formato", "Diferença oferta − preferência"],
+            frows
+              .filter((x) => x[1] !== null && x[2] !== null)
+              .map(([f, x, y]) => [
+                f,
+                (y - x >= 0 ? "+" : "") + fmt(y - x, 1) + " p.p.",
+              ]),
+          );
+        let trows = [...topics, "Sem preferência"].map((t) => [
+          t,
+          topics.includes(t) && ["Outros", "Não classificável"].includes(t)
+            ? null
+            : share(s, "topic", (v) => v === t),
+          t === "Sem preferência"
+            ? null
+            : pct(p.filter((r) => r.topic === t).length, p.length),
+        ]);
+        $("topicCross").innerHTML =
+          paired(
+            trows,
+            "Preferência (n=" + valid(s, "topic") + ")",
+            "Oferta (n=" + p.length + ")",
+          ) +
+          table(
+            ["Tema", "Diferença oferta − preferência"],
+            trows
+              .filter((x) => x[1] !== null && x[2] !== null)
+              .map(([t, x, y]) => [
+                t,
+                (y - x >= 0 ? "+" : "") + fmt(y - x, 1) + " p.p.",
+              ]),
+          );
+        $("topicPerformance").innerHTML = table(
+          [
+            "Tema",
+            "n",
+            "Mediana views",
+            "Mediana alcance",
+            "Compartilhamentos",
+            "Salvamentos",
+            "Taxa ponderada",
+          ],
+          group(p, "topic").map(([t, a]) => [
+            t,
+            fmt(a.length),
+            fmt(median(a.map((r) => N(r.views)).filter((x) => x !== null)), 1),
+            fmt(median(a.map((r) => N(r.reach)).filter((x) => x !== null)), 1),
+            fmt(total(a, "shares")),
+            fmt(total(a, "saves")),
+            perc(weighted(a)),
+          ]),
+        );
+        let reg = regular(p),
+          g = group(
+            s.filter((r) => txt(r.seen)),
+            "seen",
+          ).map(([v, a]) => [
+            v,
+            fmt(a.length),
+            perc(share(a, "efficacy", isEffective)),
+            fmt(avg(utilityValues(a)), 2),
+            perc(share(a, "image", positive)),
+          ]);
+        $("triangulation").innerHTML =
+          table(
+            [
+              "Exposição declarada",
+              "n",
+              "Eficácia alta/extrema",
+              "Utilidade média",
+              "Imagem positiva",
+            ],
+            g,
+          ) +
+          `<p class="info">Exposição: ${perc(share(s, "seen", isSeen))}. Maior intervalo entre datas de publicações: ${reg.gap === null ? "indisponível" : fmt(reg.gap) + " dias"}. Período do questionário: ${esc(range(s))}; período das publicações: ${esc(range(p))}; série diária: ${esc(range(d))}. As janelas podem não coincidir; não é possível vincular alcance, frequência ou métricas a um respondente.</p>`;
+      }
+      function directions(s, p) {
+        let tops = by(s, "topic").filter((x) => x[0] !== "Sem preferência"),
+          pref = by(s, "format").filter(
+            (x) =>
+              ![
+                "Sem preferência",
+                "Não usa Instagram",
+                "Não informado",
+              ].includes(x[0]),
+          ),
+          formats = by(p, "format"),
+          reg = regular(p);
+        let topicEvidence = tops.length
+          ? tops
+              .slice(0, 2)
+              .map(([k, v]) => k + " (" + perc(pct(v, valid(s, "topic"))) + ")")
+              .join("; ")
+          : "Sem preferências válidas";
+        let formatEvidence = pref.length
+          ? pref[0][0] + " (" + perc(pct(pref[0][1], valid(s, "format"))) + ")"
+          : "Sem preferência válida";
+        let offer = formats.length
+          ? formats[0][0] + " (" + perc(pct(formats[0][1], p.length)) + ")"
+          : "Sem publicações";
+        let rows = [
+          [
+            "Planejamento editorial",
+            topicEvidence,
+            "Priorizar os assuntos identificados; manter espaço para serviços, prazos e orientações. Validar demanda local em Barra do Bugres.",
+            "Participação por tema, salvamentos, cliques oficiais, utilidade declarada.",
+          ],
+          [
+            "Diversificação de formatos",
+            "Preferência: " + formatEvidence + "; oferta: " + offer,
+            "Testar Reels de divulgação, carrosséis explicativos e imagens de aviso; Stories para lembretes.",
+            "Mediana de alcance, compartilhamentos e salvamentos por formato, n e janela equivalentes.",
+          ],
+          [
+            "Regularidade",
+            reg.gap === null
+              ? "Intervalo indisponível"
+              : "Maior intervalo observado: " +
+                reg.gap +
+                " dias; " +
+                perc(share(s, "seen", isSeen)) +
+                " de exposição declarada.",
+            "Proposta piloto: 3 publicações semanais e Stories em dias úteis conforme demanda e capacidade.",
+            "Publicações realizadas / planejadas, semanas ativas e exposição declarada.",
+          ],
+          [
+            "Organização da gestão",
+            "Questionário: Instagram " +
+              perc(share(s, "channel", isIG)) +
+              ", WhatsApp " +
+              perc(share(s, "channel", (v) => same(v, "WhatsApp"))) +
+              ".",
+            "Designar responsável e suplente, definir aprovação, calendário, acessibilidade, segurança e fluxo de atendimento.",
+            "Prazo de aprovação, tempo de resposta, conformidade do calendário.",
+          ],
+          [
+            "Monitoramento",
+            `Engajamento ponderado ${perc(weighted(p))}; eficácia alta/extrema ${perc(share(s, "efficacy", isEffective))}.`,
+            "Estabelecer linha de base, registrar métricas mensais, repetir questionário e realizar ajustes.",
+            "Alcance, interações, cliques, utilidade, eficácia, exposição e imagem.",
+          ],
+        ];
+        $("directions").innerHTML = table(
+          ["Eixo", "Evidência do recorte", "Diretriz proposta", "Indicadores"],
+          rows,
+          "decision",
+        );
+        $("calendar").innerHTML = table(
+          ["Dia", "Pilar / formato", "Objetivo"],
+          [
+            [
+              "Segunda",
+              "Auxílios, bolsas, prazos · carrossel",
+              "Orientar e facilitar consulta",
+            ],
+            [
+              "Quarta",
+              "Eventos, projetos · Reel",
+              "Ampliar descoberta e participação",
+            ],
+            [
+              "Sexta",
+              "Serviços e vida acadêmica · imagem/Reel",
+              "Dar visibilidade ao apoio",
+            ],
+            [
+              "Dias úteis",
+              "Stories conforme demanda",
+              "Lembretes, enquetes e avisos",
+            ],
+            [
+              "Urgências",
+              "Instagram + canal oficial + WhatsApp",
+              "Reduzir risco de perda de prazo",
+            ],
+          ],
+        );
+        $("monitor").innerHTML = table(
+          ["Indicador", "Fórmula / registro", "Frequência"],
+          [
+            ["Regularidade", "Publicações realizadas / planejadas", "Semanal"],
+            ["Engajamento", "Σ interações / Σ alcance (mesma base)", "Mensal"],
+            ["Compartilhamento", "Σ shares / Σ alcance", "Mensal"],
+            ["Utilidade", "Média das notas 1–5 e n", "Trimestral"],
+            ["Exposição", "Respostas Sim / válidas", "Trimestral"],
+            ["Eficácia", "Muito + extremamente / válidas", "Trimestral"],
+            ["Atendimento", "Mediana de tempo de resposta", "Mensal"],
+            ["Cliques", "Cliques registrados, sem inferir conversão", "Mensal"],
+          ],
+        );
+      }
+      function audit(s, p, d) {
+        let quality = [
+          [
+            "Questionário",
+            s.length,
+            "Respostas sem vínculo com métricas individuais",
+          ],
+          [
+            "Publicações",
+            p.length,
+            "Métricas Lifetime; perfis identificados quando disponíveis",
+          ],
+          [
+            "Datas de publicação ausentes",
+            p.filter((r) => !r.date).length,
+            "Excluídas de séries temporais",
+          ],
+          [
+            "Sem alcance válido",
+            p.filter((r) => N(r.reach) === null).length,
+            "Não presumir zero",
+          ],
+          [
+            "Sem quatro componentes de interação",
+            p.filter((r) => interaction(r) === null).length,
+            "Taxa não calculada",
+          ],
+          [
+            "Temas não classificáveis",
+            p.filter((r) => r.topic === "Não classificável").length,
+            "Revisar manualmente",
+          ],
+          [
+            "Temas revisados",
+            p.filter((r) => r.review === "Manual").length,
+            "Classificação do pesquisador",
+          ],
+          [
+            "Datas da série diária",
+            d.length,
+            "Origem confirmada apenas se indicada pelo usuário",
+          ],
+        ];
+        $("quality").innerHTML =
+          table(["Verificação", "Quantidade", "Interpretação"], quality) +
+          `<p class="info">Amostra pequena e não demonstrada como probabilística; não generalizar para Barra do Bugres. O painel não calcula significância, causalidade ou conversão individual. Classificação de temas é heurística e exige revisão. Nenhuma resposta de Barra do Bugres é presumida.</p>`;
+        auditPosts(p);
+      }
+      function auditPosts(p) {
+        let q = norm($("postSearch").value),
+          a = p.filter(
+            (r) =>
+              !q ||
+              norm(r.description + " " + r.format + " " + r.topic).includes(q),
+          );
+        $("auditPosts").innerHTML = a.length
+          ? `<table><thead><tr><th>Data / formato</th><th>Legenda</th><th>Tema principal</th><th>Revisão</th><th>Views</th></tr></thead><tbody>${a.map((r) => `<tr><td>${esc(r.date)}<br>${esc(r.format)}</td><td class="desc">${esc(txt(r.description).slice(0, 350) || "Sem legenda")}</td><td><select aria-label="Tema da publicação" data-index="${state.posts.indexOf(r)}">${topics.map((t) => `<option ${t === r.topic ? "selected" : ""}>${esc(t)}</option>`).join("")}</select></td><td>${esc(r.review)}</td><td>${fmt(N(r.views))}</td></tr>`).join("")}</tbody></table>`
+          : empty();
+      }
+      function inventoryRender() {
+        let specs = [
+          [
+            "Questionário Google Forms",
+            "survey",
+            state.survey.length,
+            range(state.survey),
+          ],
+          [
+            "Publicações Instagram",
+            "posts",
+            state.posts.length,
+            range(state.posts),
+          ],
+          ...dailyKeys.map((k) => {
+            let d = state.daily.filter((r) => N(r[k]) !== null);
+            return [metrics[k], k, d.length, range(d)];
+          }),
+          [
+            "Top content formats",
+            "formats",
+            Object.keys(state.formats).length,
+            "Retrato agregado",
+          ],
+          ["Audience", "audience", state.audience ? 1 : 0, "Retrato agregado"],
+        ];
+        $("inventory").innerHTML = table(
+          [
+            "Relatório",
+            "Arquivo de origem",
+            "Registros / itens",
+            "Período / escopo",
+          ],
+          specs.map(([label, k, n, period]) => [
+            label,
+            (dailyKeys.includes(k) ? metricSources[k] : sources[k]) ||
+              "Não importado",
+            n ? fmt(n) : "—",
+            n ? period : "—",
+          ]),
+        );
+      }
+      function audienceBars(a, c) {
+        return a.length
+          ? `<div class="bars">${a.map(([l, v]) => `<div><div class="barlabel"><span>${esc(l)}</span><b>${perc(v)}</b></div><div class="track"><div class="fill" style="width:${v}%;background:var(--${c})"></div></div></div>`).join("")}</div>`
+          : empty();
+      }
+      function audienceRender() {
+        let a = state.audience;
+        if (!a) {
+          $("audienceKpis").innerHTML = empty(
+            "Importe Audience.csv para consultar os dados demográficos.",
+          );
+          $("audienceCharts").innerHTML = "";
+          return;
+        }
+        let sum = (k) => {
+          let x = a.ages.map((r) => r[k]).filter((v) => v !== null);
+          return x.length ? x.reduce((x, y) => x + y, 0) : null;
+        };
+        $("audienceKpis").innerHTML = [
+          kpi("Seguidores", fmt(a.followers), "Total do relatório"),
+          kpi(
+            "Mulheres",
+            perc(sum("women")),
+            "Soma das faixas reportadas",
+            "pink",
+          ),
+          kpi("Homens", perc(sum("men")), "Soma das faixas reportadas", "teal"),
+        ].join("");
+        let age = a.ages.map((r) => [r.age, r.women, r.men]);
+        $("audienceCharts").innerHTML =
+          panel(
+            "Faixa etária × gênero",
+            paired(age, "Mulheres", "Homens"),
+            "Percentuais do relatório original.",
+          ) +
+          panel(
+            "Principais cidades",
+            audienceBars(a.cities, "teal"),
+            "Percentuais reportados, não contagens.",
+          ) +
+          panel(
+            "Principais países",
+            audienceBars(a.countries, "blue"),
+            "Percentuais reportados, não contagens.",
+          );
+      }
+      function render() {
+        inventoryRender();
+        audienceRender();
+        let { s, p, d } = selected();
+        $("sources").textContent =
+          `Questionário: ${sources.survey} | Publicações: ${sources.posts} | Série: ${sources.daily} | Formatos: ${sources.formats} | Audiência: ${sources.audience}` +
+          (Object.keys(metricSources).length
+            ? " | " +
+              Object.entries(metricSources)
+                .map(([k, v]) => metrics[k] + ": " + v)
+                .join(" · ")
+            : "");
+        $("periods").textContent =
+          `Questionário: ${range(s)} (${s.length}) · Publicações: ${range(p)} (${p.length}) · Série diária: ${range(d)} (${d.length} datas). Filtros de campus e curso não alteram as métricas do perfil.`;
+        surveyRender(s);
+        postRender(p, d);
+        integrate(s, p, d);
+        directions(s, p);
+        audit(s, p, d);
+      }
+      /* CSV parser: quoted commas, separators, escaped quotes and multiline fields. */
+      function parseCSV(text, sep) {
+        let rows = [],
+          row = [],
+          cell = "",
+          quoted = false;
+        for (let i = 0; i < text.length; i++) {
+          let c = text[i];
+          if (c === '"') {
+            if (quoted && text[i + 1] === '"') {
+              cell += '"';
+              i++;
+            } else if (quoted || cell === "") quoted = !quoted;
+            else cell += c;
+          } else if (c === sep && !quoted) {
+            row.push(cell);
+            cell = "";
+          } else if ((c === "\r" || c === "\n") && !quoted) {
+            if (c === "\r" && text[i + 1] === "\n") i++;
+            row.push(cell);
+            if (row.some((x) => txt(x))) rows.push(row);
+            row = [];
+            cell = "";
+          } else cell += c;
+        }
+        if (quoted) throw Error("CSV com aspas não fechadas.");
+        row.push(cell);
+        if (row.some((x) => txt(x))) rows.push(row);
+        return rows;
+      }
+      const aliases = {
+        survey: {
+          date: ["carimbo de data hora", "timestamp", "date", "data"],
+          campus: ["em qual campus", "campus"],
+          course: ["qual curso", "curso", "course"],
+          channel: ["principal canal", "channel", "canal"],
+          seen: ["nos ultimos 30 dias", "seen", "exposicao"],
+          efficacy: ["quao eficaz", "efficacy", "eficacia"],
+          utility: ["quao uteis", "utility", "utilidade"],
+          image: ["influenciaram a imagem", "image", "imagem institucional"],
+          topic: ["qual assunto", "topic", "assunto"],
+          kind: ["qual destes tipos", "kind", "tipo de conteudo"],
+          format: ["em qual formato", "format", "formato"],
+          suggestion: ["que mudanca", "suggestion", "sugestao"],
+        },
+        posts: {
+          id: ["post id", "id", "id da publicacao"],
+          account: [
+            "account username",
+            "account",
+            "nome de usuario da conta",
+            "perfil",
+          ],
+          description: ["description", "descricao", "legenda"],
+          date: [
+            "publish time",
+            "data de publicacao",
+            "horario de publicacao",
+            "date",
+            "data",
+          ],
+          url: ["permalink", "url", "link"],
+          format: ["post type", "tipo de publicacao", "format", "formato"],
+          views: ["views", "visualizacoes"],
+          reach: ["reach", "alcance"],
+          likes: ["likes", "curtidas"],
+          shares: ["shares", "compartilhamentos"],
+          comments: ["comments", "comentarios"],
+          saves: ["saves", "salvamentos"],
+          follows: ["follows", "seguidores"],
+          topic: ["topic", "tema principal", "tema"],
+          review: ["review", "revisao"],
+        },
+        daily: {
+          date: ["date", "data"],
+          views: ["views", "visualizacoes"],
+          reach: ["reach", "alcance"],
+          interactions: ["interactions", "interacoes"],
+          visits: ["visits", "visitas", "visitas ao perfil"],
+          clicks: ["link clicks", "cliques em links", "clicks", "cliques"],
+          follows: ["follows", "seguidores", "novos seguidores"],
+        },
+        single: {
+          date: ["date", "data"],
+          value: ["primary", "value", "valor"],
+        },
+        formats: {
+          stories: ["stories"],
+          posts: ["posts", "publicacoes"],
+          format: ["format", "formato"],
+          count: ["count", "quantidade", "total"],
+        },
+      };
+      const surveyOriginalHeaders = {
+        date: "Carimbo de data/hora",
+        campus: "Em qual campus da UNEMAT você estuda?",
+        course: "Qual curso você estuda na UNEMAT?",
+        channel:
+          "Qual é o principal canal pelo qual você prefere receber informações do CAEST sobre auxílios, bolsas, editais e vida no campus?",
+        seen: "Nos últimos 30 dias, você viu alguma publicação ou Story do Instagram do CAEST do seu campus?",
+        efficacy:
+          "Quão eficaz o Instagram do CAEST foi para fazer com que as informações chegassem a você a tempo?",
+        utility:
+          "Quão úteis foram as informações que você viu no Instagram do CAEST?",
+        image:
+          "Na sua percepção, como as publicações do CAEST no Instagram influenciaram a imagem que você tem da UNEMAT?",
+        topic: "Qual assunto você mais gostaria de ver no Instagram do CAEST?",
+        kind: "Qual destes tipos de publicação você mais gostaria de acompanhar no Instagram do CAEST?",
+        format:
+          "Em qual formato você prefere receber informações do CAEST no Instagram?",
+        suggestion:
+          "Que mudança você sugeriria para melhorar a comunicação do CAEST?",
+      };
+      function columns(header, type) {
+        const hs = header.map(norm),
+          m = {},
+          used = new Set();
+        const specs = Object.entries(aliases[type]).map(([key, vs]) => [
+          key,
+          [...(type === "survey" ? [surveyOriginalHeaders[key]] : []), ...vs]
+            .filter(Boolean)
+            .map(norm),
+        ]);
+        // First reserve exact matches across all fields, then resolve unambiguous phrases.
+        for (const [key, vs] of specs) {
+          for (const v of vs) {
+            const hits = hs
+              .map((h, i) => (h === v && !used.has(i) ? i : -1))
+              .filter((i) => i >= 0);
+            if (hits.length === 1) {
+              m[key] = hits[0];
+              used.add(hits[0]);
+              break;
+            }
+          }
+        }
+        for (const [key, vs] of specs) {
+          if (Object.hasOwn(m, key)) continue;
+          for (const v of vs) {
+            if (type === "survey" ? v.split(" ").length < 2 : v.length < 12)
+              continue;
+            const hits = hs
+              .map((h, i) =>
+                !used.has(i) && (" " + h + " ").includes(" " + v + " ")
+                  ? i
+                  : -1,
+              )
+              .filter((i) => i >= 0);
+            if (hits.length === 1) {
+              m[key] = hits[0];
+              used.add(hits[0]);
+              break;
+            }
+          }
+        }
+        return m;
+      }
+      function matchType(header, type) {
+        let m = columns(header, type),
+          has = (k) => Object.hasOwn(m, k),
+          n = Object.keys(m).length;
+        if (type === "survey") return has("campus") && n >= 4 ? n : 0;
+        if (type === "posts")
+          return has("format") &&
+            has("date") &&
+            (has("id") || has("description") || has("account")) &&
+            ["views", "reach", "likes"].some(has)
+            ? n
+            : 0;
+        if (type === "daily") return has("date") && dailyKeys.some(has) ? n : 0;
+        if (type === "single") return has("date") && has("value") ? n : 0;
+        if (type === "formats")
+          return (has("stories") && has("posts")) ||
+            (has("format") && has("count"))
+            ? n
+            : 0;
+        return 0;
+      }
+      function metricKind(v) {
+        let n = norm(v);
+        return /link clicks|cliques/.test(n)
+          ? "clicks"
+          : /interactions|interacoes/.test(n)
+            ? "interactions"
+            : /views|visualizacoes/.test(n)
+              ? "views"
+              : /reach|alcance/.test(n)
+                ? "reach"
+                : /visits|visitas/.test(n)
+                  ? "visits"
+                  : /follows|seguidores/.test(n)
+                    ? "follows"
+                    : "";
+      }
+      function audiencePct(v) {
+        let t = txt(v);
+        if (!t) return null;
+        let n = Number(t.replace(/%\s*$/, "").replace(",", "."));
+        return Number.isFinite(n) && n >= 0 && n <= 100 ? n : null;
+      }
+      function parseAudience(text) {
+        for (let sep of [",", ";", "\t"]) {
+          let rows;
+          try {
+            rows = parseCSV(text, sep);
+          } catch (e) {
+            continue;
+          }
+          let a = { followers: null, ages: [], cities: [], countries: [] },
+            section = "";
+          for (let r of rows) {
+            let h = norm(r[0]),
+              h1 = norm(r[1]),
+              h2 = norm(r[2]);
+            if (
+              /^(ig account follow unique users|total de seguidores|total followers)$/.test(
+                h,
+              )
+            ) {
+              section = "followers";
+              if (N(r[1]) !== null) a.followers = N(r[1]);
+              continue;
+            }
+            if (
+              ["age", "idade", "faixa etaria"].includes(h) &&
+              ["women", "mulheres"].includes(h1) &&
+              ["men", "homens"].includes(h2)
+            ) {
+              section = "ages";
+              continue;
+            }
+            if (["top cities", "principais cidades", "cidades"].includes(h)) {
+              section = "cities";
+              continue;
+            }
+            if (["top countries", "principais paises", "paises"].includes(h)) {
+              section = "countries";
+              continue;
+            }
+            if (
+              r.length === 1 &&
+              /^(instagram followers|seguidores do instagram)/.test(h)
+            ) {
+              section =
+                h === "instagram followers" || h === "seguidores do instagram"
+                  ? "followers"
+                  : "";
+              continue;
+            }
+            if (section === "followers" && N(r[0]) !== null) {
+              a.followers = N(r[0]);
+              section = "";
+              continue;
+            }
+            if (
+              section === "ages" &&
+              /^\d+\s*(?:[-–]\s*\d+|\+)$/.test(txt(r[0]))
+            ) {
+              let women = audiencePct(r[1]),
+                men = audiencePct(r[2]);
+              if (women !== null || men !== null)
+                a.ages.push({ age: txt(r[0]), women, men });
+              continue;
+            }
+            if (
+              ["cities", "countries"].includes(section) &&
+              txt(r[0]) &&
+              audiencePct(r[1]) !== null
+            )
+              a[section].push([txt(r[0]), audiencePct(r[1])]);
+          }
+          if (
+            a.followers !== null ||
+            a.ages.length ||
+            a.cities.length ||
+            a.countries.length
+          )
+            return a;
+        }
+        return null;
+      }
+      function identify(text, wanted, name) {
+        if (
+          wanted === "audience" ||
+          (wanted === "auto" &&
+            (/audience|publico|audiencia/.test(norm(name)) ||
+              /instagram followers by (gender and age|top cities|top countries)/i.test(
+                text,
+              )))
+        ) {
+          let audience = parseAudience(text);
+          if (!audience) throw Error("Estrutura de audiência não reconhecida.");
+          return { kind: "audience", audience };
+        }
+        let candidates = [],
+          target = dailyKeys.includes(wanted) ? "single" : wanted;
+        for (let sep of [",", ";", "\t"]) {
+          let rows;
+          try {
+            rows = parseCSV(text, sep);
+          } catch (e) {
+            continue;
+          }
+          for (let i = 0; i < Math.min(rows.length, 25); i++) {
+            for (let type of [
+              "survey",
+              "posts",
+              "daily",
+              "single",
+              "formats",
+            ]) {
+              if (
+                target !== "auto" &&
+                target !== type &&
+                !(dailyKeys.includes(wanted) && type === "daily")
+              )
+                continue;
+              let score = matchType(rows[i], type);
+              if (score)
+                candidates.push({
+                  score,
+                  type,
+                  header: rows[i],
+                  rows: rows.slice(i + 1),
+                  sep,
+                });
+            }
+          }
+        }
+        candidates.sort((a, b) => b.score - a.score);
+        if (!candidates.length)
+          throw Error(
+            "Cabeçalhos não reconhecidos. Verifique o tipo selecionado e o arquivo.",
+          );
+        let c = candidates[0],
+          kind = c.type;
+        if (kind === "daily" && dailyKeys.includes(wanted)) kind = wanted;
+        if (kind === "single") {
+          if (dailyKeys.includes(wanted)) kind = wanted;
+          else {
+            let titleKind = metricKind(
+              c.header
+                ? parseCSV(text, c.sep)
+                    .slice(
+                      0,
+                      Math.min(
+                        25,
+                        parseCSV(text, c.sep).findIndex((r) =>
+                          r.map(norm).includes("primary"),
+                        ),
+                      ),
+                    )
+                    .flat()
+                    .join(" ")
+                : "",
+            );
+            kind = titleKind || metricKind(name);
+            if (!kind)
+              throw Error(
+                "Série Date/Primary: selecione o indicador no menu Tipo de arquivo.",
+              );
+          }
+        }
+        let m = columns(c.header, c.type);
+        let rows = c.rows
+          .filter((r) => r.some((v) => txt(v)))
+          .map((r) =>
+            Object.fromEntries(
+              Object.entries(m).map(([k, i]) => [k, txt(r[i])]),
+            ),
+          );
+        return { kind, rows, header: c.header, mapping: m };
+      }
+      function dedup(rows, k) {
+        let m = new Map();
+        for (let r of rows) {
+          let id = r[k];
+          if (id) m.set(id, r);
+        }
+        return [...m.values()];
+      }
+      function resetDailyConfirmation() {
+        $("dailyScope").value = "no";
+      }
+      function importRows({ kind, rows, audience, header, mapping }, name) {
+        let n = 0,
+          notes = "";
+        if (kind === "audience") {
+          state.audience = audience;
+          sources.audience = name;
+          return `${name}: audiência importada (${audience.ages.length} faixas etárias, ${audience.cities.length} cidades, ${audience.countries.length} países).`;
+        }
+        if (kind === "survey") {
+          let mapped = rows
+            .filter((r) => Object.values(r).some((v) => txt(v)))
+            .map((r) => ({
+              ...r,
+              raw: { ...r },
+              date: date(r.date, "DMY"),
+              format: txt(r.format) ? format(r.format) : "",
+              topic: txt(r.topic) ? surveyTopic(r.topic) : "",
+            }));
+          if (!mapped.length) throw Error("Nenhuma resposta reconhecida.");
+          state.survey = mapped;
+          $("campus").value = "";
+          $("course").value = "";
+          state.surveyMapping = Object.fromEntries(
+            Object.entries(mapping || {}).map(([k, i]) => [k, header[i]]),
+          );
+          sources.survey = name;
+          n = mapped.length;
+          let missing = Object.keys(surveyOriginalHeaders).filter(
+            (k) => !Object.hasOwn(state.surveyMapping, k),
+          );
+          notes =
+            `${Object.keys(state.surveyMapping).length}/12 campos reconhecidos. ${rows.length - n} linhas ignoradas.` +
+            (missing.length
+              ? " ATENÇÃO: campos não reconhecidos: " +
+                missing
+                  .map(
+                    (k) =>
+                      surveyLabels[k] ||
+                      (k === "suggestion" ? "Sugestões abertas" : k),
+                  )
+                  .join(", ") +
+                ". Consulte a conferência de campos."
+              : "");
+        } else if (kind === "posts") {
+          let mapped = rows
+            .filter((r) => r.id || r.description || r.date)
+            .map((r, i) => ({
+              ...r,
+              id: r.id || r.url || "linha-" + i,
+              account: r.account || "Perfil não informado",
+              date: date(r.date),
+              format: format(r.format),
+              topic: topics.includes(r.topic)
+                ? r.topic
+                : classify(r.description),
+              review: r.review === "Manual" ? "Manual" : "Automática",
+              ...Object.fromEntries(
+                [
+                  "views",
+                  "reach",
+                  "likes",
+                  "shares",
+                  "comments",
+                  "saves",
+                  "follows",
+                ].map((k) => [k, N(r[k])]),
+              ),
+            }));
+          if (!mapped.length) throw Error("Nenhuma publicação reconhecida.");
+          state.posts = dedup(mapped, "id");
+          n = state.posts.length;
+          sources.posts = name;
+          resetDailyConfirmation();
+          notes = `${rows.length - n} linhas ignoradas ou IDs duplicados (última ocorrência mantida).`;
+        } else if (kind === "daily") {
+          let mapped = rows
+            .map((r) => ({
+              date: date(r.date),
+              ...Object.fromEntries(dailyKeys.map((k) => [k, N(r[k])])),
+            }))
+            .filter((r) => r.date && dailyKeys.some((k) => r[k] !== null));
+          if (!mapped.length)
+            throw Error(
+              "Nenhuma data com métrica válida. Datas aceitas: AAAA-MM-DD e MM/DD/AAAA (Meta).",
+            );
+          state.daily = dedup(mapped, "date");
+          n = state.daily.length;
+          sources.daily = name;
+          metricSources = Object.fromEntries(
+            dailyKeys
+              .filter((k) => mapped.some((r) => N(r[k]) !== null))
+              .map((k) => [k, name]),
+          );
+          resetDailyConfirmation();
+          notes = `${rows.length - n} linhas ignoradas ou datas repetidas.`;
+        } else if (dailyKeys.includes(kind)) {
+          let mapped = rows
+            .map((r) => ({ date: date(r.date), [kind]: N(r.value ?? r[kind]) }))
+            .filter((r) => r.date && r[kind] !== null);
+          if (!mapped.length) throw Error("Nenhum valor diário reconhecido.");
+          let map = new Map(
+            state.daily.map((r) => [r.date, { ...r, [kind]: null }]),
+          );
+          for (let r of mapped) map.set(r.date, { ...map.get(r.date), ...r });
+          state.daily = [...map.values()]
+            .filter((r) => dailyKeys.some((k) => N(r[k]) !== null))
+            .sort((a, b) => a.date.localeCompare(b.date));
+          n = dedup(mapped, "date").length;
+          metricSources[kind] = name;
+          sources.daily = "CSV individuais unidos por data";
+          resetDailyConfirmation();
+          notes =
+            "Somente esta métrica foi substituída; outras séries foram preservadas.";
+        } else if (kind === "formats") {
+          let f = {};
+          for (let r of rows) {
+            if (N(r.stories) !== null) f.Stories = N(r.stories);
+            if (N(r.posts) !== null) f.Posts = N(r.posts);
+            if (
+              txt(r.format) &&
+              N(r.count) !== null &&
+              !same(r.format, "total")
+            )
+              f[format(r.format)] = N(r.count);
+          }
+          if (!Object.keys(f).length)
+            throw Error("Nenhuma quantidade de formato reconhecida.");
+          state.formats = f;
+          sources.formats = name;
+          n = Object.keys(f).length;
+          notes = "Escopo agregado não confirmado.";
+        }
+        return `${name}: ${n} registros/itens de ${kind}. ${notes}`;
+      }
+      async function readFile(f) {
+        let buf = await f.arrayBuffer(),
+          a = new Uint8Array(buf);
+        let encoding =
+          a[0] === 255 && a[1] === 254
+            ? "utf-16le"
+            : a[0] === 254 && a[1] === 255
+              ? "utf-16be"
+              : a.length > 3 && a[1] === 0 && a[3] === 0
+                ? "utf-16le"
+                : "utf-8";
+        let t = new TextDecoder(encoding).decode(buf);
+        if (encoding === "utf-8" && t.includes("\ufffd"))
+          t = new TextDecoder("windows-1252").decode(buf);
+        return t.replace(/^\ufeff/, "");
+      }
+      async function importFiles(files) {
+        let results = [],
+          list = [...files],
+          wanted = $("importType").value;
+        if (list.length > 1 && wanted !== "auto") {
+          $("status").textContent =
+            "Para importar vários arquivos, selecione Detectar automaticamente.";
+          return;
+        }
+        let seen = new Set();
+        for (let f of list) {
+          try {
+            if (!/\.(csv|tsv|txt)$/i.test(f.name))
+              throw Error(
+                "Selecione um CSV original; Excel não é necessário nem aceito.",
+              );
+            let text = await readFile(f),
+              r = identify(text, wanted, f.name);
+            if (seen.has(r.kind))
+              throw Error(
+                "Já há um relatório deste tipo neste lote. Importe separadamente se quiser substituí-lo.",
+              );
+            results.push(importRows(r, f.name));
+            seen.add(r.kind);
+          } catch (err) {
+            results.push("Erro em " + f.name + ": " + err.message);
+          }
+        }
+        $("status").textContent = results.join("\n");
+        filters();
+        render();
+      }
+      $("choose").onclick = () => $("file").click();
+      $("file").onchange = async (e) => {
+        let files = [...e.target.files];
+        e.target.value = "";
+        await importFiles(files);
+      };
+      $("dropzone").onclick = () => $("file").click();
+      $("dropzone").onkeydown = (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          $("file").click();
+        }
+      };
+      for (let ev of ["dragover", "dragenter"])
+        $("dropzone").addEventListener(ev, (e) => {
+          e.preventDefault();
+          $("dropzone").style.borderColor = "var(--accent)";
+        });
+      $("dropzone").ondragleave = () => ($("dropzone").style.borderColor = "");
+      $("dropzone").ondrop = (e) => {
+        e.preventDefault();
+        $("dropzone").style.borderColor = "";
+        importFiles(e.dataTransfer.files);
+      };
+
+      function download(name, data, mime = "text/csv;charset=utf-8") {
+        let a = document.createElement("a"),
+          url = URL.createObjectURL(new Blob([data], { type: mime }));
+        a.href = url;
+        a.download = name;
+        document.body.append(a);
+        a.click();
+        a.remove();
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+      }
+      function csv(rows, keys) {
+        let q = (v) => '"' + String(v ?? "").replace(/"/g, '""') + '"';
+        return (
+          "\ufeff" +
+          keys.map(q).join(",") +
+          "\r\n" +
+          rows.map((r) => keys.map((k) => q(r[k])).join(",")).join("\r\n")
+        );
+      }
+      $("exportPosts").onclick = () =>
+        download(
+          "caest_publicacoes_classificadas.csv",
+          csv(state.posts, [
+            "id",
+            "account",
+            "description",
+            "date",
+            "url",
+            "format",
+            "views",
+            "reach",
+            "likes",
+            "shares",
+            "comments",
+            "saves",
+            "follows",
+            "topic",
+            "review",
+          ]),
+        );
+      $("saveData").onclick = () =>
+        download(
+          "caest_dados_analisados.json",
+          JSON.stringify({ data: state, sources, metricSources }, null, 2),
+          "application/json",
+        );
+      $("auditPosts").addEventListener("change", (e) => {
+        if (e.target.matches("select[data-index]")) {
+          let r = state.posts[Number(e.target.dataset.index)];
+          if (r) {
+            r.topic = e.target.value;
+            r.review = "Manual";
+            render();
+          }
+        }
+      });
+      $("postSearch").oninput = () => auditPosts(selected().p);
+      $("rankingMetric").onchange = () => rankRender(selected().p);
+      $("metric").onchange = () => postRender(selected().p, selected().d);
+      ["course", "from", "to", "dailyScope"].forEach(
+        (id) => ($(id).onchange = render),
+      );
+      $("campus").onchange = () => {
+        chooseOptions(
+          "course",
+          unique(
+            state.survey
+              .filter(
+                (r) => !$("campus").value || r.campus === $("campus").value,
+              )
+              .map((r) => r.course),
+          ),
+          "Todos os cursos",
+        );
+        render();
+      };
+      $("account").onchange = () => {
+        resetDailyConfirmation();
+        render();
+      };
+      $("clear").onclick = () => {
+        ["campus", "course", "from", "to", "postSearch"].forEach(
+          (id) => ($(id).value = ""),
+        );
+        $("account").value = unique(state.posts.map((r) => r.account)).includes(
+          "caest.unemat.aia.roo",
+        )
+          ? "caest.unemat.aia.roo"
+          : "";
+        chooseOptions(
+          "course",
+          unique(state.survey.map((r) => r.course)),
+          "Todos os cursos",
+        );
+        resetDailyConfirmation();
+        render();
+      };
+      $("reset").onclick = () => {
+        if (
+          !confirm(
+            "Limpar todos os CSVs importados e descartar as revisões desta sessão?",
+          )
+        )
+          return;
+        state = clone(original);
+        sources = {
+          survey: "Não importado",
+          posts: "Não importado",
+          daily: "Não importado",
+          formats: "Não importado",
+          audience: "Não importado",
+        };
+        metricSources = {};
+        prep();
+        filters();
+        $("clear").click();
+        $("status").textContent =
+          "Bases limpas. Selecione os CSVs originais para começar.";
+      };
+      function theme() {
+        let dark = document.documentElement.dataset.theme === "dark";
+        $("theme").textContent = dark ? "☀ Modo claro" : "☾ Modo escuro";
+        $("theme").setAttribute("aria-pressed", String(dark));
+      }
+      $("theme").onclick = () => {
+        let next =
+          document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+        document.documentElement.dataset.theme = next;
+        try {
+          localStorage.setItem("caest-theme", next);
+        } catch (e) {}
+        theme();
+      };
+      theme();
+      filters();
+      render();
+    </script>
+  </body>
+</html>
