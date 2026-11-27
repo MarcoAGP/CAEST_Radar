@@ -6,12 +6,12 @@ A aplicação funciona localmente em um navegador moderno. A interface, os estil
 
 ## Estrutura do repositório
 
-| Caminho                                                                  | Conteúdo                                                    |
-| ------------------------------------------------------------------------ | ----------------------------------------------------------- |
-| [CAEST_Radar_V3_CSV_Originais.html](./CAEST_Radar_V3_CSV_Originais.html) | Aplicação que deve ser aberta no navegador                  |
-| [CSV/](./CSV/)                                                           | Relatórios de entrada do Instagram e do questionário        |
-| README.md                                                                | Guia de uso e interpretação                                 |
-| LICENSE                                                                  | Arquivo previsto para a licença MIT, a ser criado no GitHub |
+| Caminho                                                                  | Conteúdo                                             |
+| ------------------------------------------------------------------------ | ---------------------------------------------------- |
+| [CAEST_Radar_V3_CSV_Originais.html](./CAEST_Radar_V3_CSV_Originais.html) | Aplicação que deve ser aberta no navegador           |
+| [CSV/](./CSV/)                                                           | Relatórios de entrada do Instagram e do questionário |
+| README.md                                                                | Guia de uso e interpretação                          |
+| LICENSE                                                                  | Arquivo de licença MIT.                              |
 
 ## Primeira execução
 
@@ -25,18 +25,18 @@ A aplicação funciona localmente em um navegador moderno. A interface, os estil
 
 Os nomes abaixo exemplificam os relatórios esperados. Preserve os cabeçalhos e, nos relatórios com várias seções, a estrutura original da exportação.
 
-| Arquivo em CSV/                                                             | O que o painel utiliza                                                                                                                 |
-| --------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| Respostas do Google Forms, com o nome da pesquisa                           | Campus, curso e respostas às perguntas sobre canal, exposição, eficácia, imagem institucional, formato, assunto, utilidade e sugestões |
-| CSV de publicações da Meta, geralmente identificado pelo intervalo de datas | Uma linha por publicação, com data, formato, identificação ou legenda e métricas disponíveis                                           |
-| Views.csv                                                                   | Visualizações por dia                                                                                                                  |
-| Reach.csv                                                                   | Alcance por dia                                                                                                                        |
-| Interactions.csv                                                            | Interações por dia                                                                                                                     |
-| Visits.csv                                                                  | Visitas por dia                                                                                                                        |
-| Link clicks.csv                                                             | Cliques em links por dia                                                                                                               |
-| Follows.csv                                                                 | Novos seguidores registrados por dia                                                                                                   |
-| Top content formats.csv                                                     | Quantidades agregadas por formato, conforme a exportação                                                                               |
-| Audience.csv                                                                | Retrato dos seguidores, com total, distribuição por idade e gênero e principais cidades e países, conforme disponibilidade             |
+| Arquivo em CSV/                                                                                                                      | O que o painel utiliza                                                                                                                 |
+| ------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
+| Respostas do Google Forms, `Pesquisa sobre o Instagram do CAEST da UNEMAT — Rondonópolis e Alto Araguaia.csv` com o nome da pesquisa | Campus, curso e respostas às perguntas sobre canal, exposição, eficácia, imagem institucional, formato, assunto, utilidade e sugestões |
+| CSV de publicações da Meta, `Feb-28-2026_Nov-08-2026_1480283953982101.csv` geralmente identificado pelo intervalo de datas           | Uma linha por publicação, com data, formato, identificação ou legenda e métricas disponíveis                                           |
+| Views.csv                                                                                                                            | Visualizações por dia                                                                                                                  |
+| Reach.csv                                                                                                                            | Alcance por dia                                                                                                                        |
+| Interactions.csv                                                                                                                     | Interações por dia                                                                                                                     |
+| Visits.csv                                                                                                                           | Visitas por dia                                                                                                                        |
+| Link clicks.csv                                                                                                                      | Cliques em links por dia                                                                                                               |
+| Follows.csv                                                                                                                          | Novos seguidores registrados por dia                                                                                                   |
+| Top content formats.csv                                                                                                              | Quantidades agregadas por formato, conforme a exportação                                                                               |
+| Audience.csv                                                                                                                         | Retrato dos seguidores, com total, distribuição por idade e gênero e principais cidades e países, conforme disponibilidade             |
 
 O importador aceita arquivos de texto com extensões `.csv`, `.tsv` e `.txt`, com vírgula, ponto e vírgula ou tabulação. Reconhece UTF-8 e variantes de UTF-16 e tenta Windows-1252 quando a leitura em UTF-8 produz caracteres inválidos. Para datas com barras, interpreta o questionário como dia/mês/ano e os relatórios Meta como mês/dia/ano. Também reconhece datas em `AAAA-MM-DD`.
 
